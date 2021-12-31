@@ -1,12 +1,10 @@
 package main
 
 import (
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/mvc"
+	"helloiris/web/controllers"
 	"time"
-
-	"github.com/chrisgoffinet/helloiris/web/controllers"
-
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/mvc"
 )
 
 const (
@@ -31,9 +29,7 @@ func main() {
 	})
 	app.Run(
 		// Start the web server at localhost:3000
-		iris.Addr("localhost:3000"),
-		// disables updates:
-		iris.WithoutVersionChecker,
+		iris.Addr("0.0.0.0:3000"),
 		// skip err server closed when CTRL/CMD+C pressed:
 		iris.WithoutServerError(iris.ErrServerClosed),
 		// enables faster json serialization and more:
